@@ -84,3 +84,4 @@ to terminate the express server run:
 ---
 - `setlife create-model <name>` creates a standard model in /api/models
 - Add the option `--type` or `-t` to create the associated Bookshelf-GraphQL Type
+

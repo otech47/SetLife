@@ -2,15 +2,14 @@ import SwiftyJSON
 import PromiseKit
 
 class <%- name %>: Codable {
-
 <% variables.forEach(function(data){ %>
-  var <%- data.name %>: <%- data.type %>?
+  <% if (data.isArray) { %>
+    var <%- data.name %>: [<%- data.type %>]?
+  <% } else { %>
+    var <%- data.name %>: <%- data.type %>?
+  <% } %>
 <%}); %>
-
-
-
   static func createFromJson(json: JSON) -> Promise<<%- name %>> {
-
     return Promise { fulfill, reject in
 
       do {

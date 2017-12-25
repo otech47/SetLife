@@ -1,0 +1,28 @@
+import SwiftyJSON
+import PromiseKit
+
+class <%- name %>: Codable {
+
+<% variables.forEach(function(data){ %>
+  var <%- data.name %>: <%- data.type %>?
+<%}); %>
+
+
+
+  static func createFromJson(json: JSON) -> Promise<<%- name %>> {
+
+    return Promise { fulfill, reject in
+
+      do {
+          let value = try JSONDecoder().decode(<%- name %>.self, from: json.rawData())
+          fulfill(value)
+      } catch {
+          print("error during decode <%- name %>: \(error.localizedDescription)")
+          reject(error)
+      }
+
+    }
+
+  }
+
+}

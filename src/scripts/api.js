@@ -63,12 +63,16 @@ export default {
                 if (payload && payload.errors) {
                     throw payload.errors; 
                 } else if (payload && payload.data && payload.data != null) {
-                    return payload.data;
+                    return Promise.resolve(payload.data);
                 } else {
                     throw 'network error';
                 }
             })
-            .catch(err => console.error(err))
+            .catch((err) => {
+                console.error(err);
+                return Promise.reject(err);
+
+            })
         );
     },
     getExt(route, headers, query) {

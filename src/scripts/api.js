@@ -63,7 +63,7 @@ export default {
                 if (payload && payload.errors) {
                     throw payload.errors; 
                 } else if (payload && payload.data && payload.data != null) {
-                    return Promise.resolve(payload.data);
+                    return Promise.resolve(payload.data);t
                 } else {
                     throw 'network error';
                 }

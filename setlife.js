@@ -272,16 +272,16 @@ program
         }
     });
 
-  program
-      .command('generate-models <name>')
-      .option('-s, --swift', 'Generate Swift models')
-      .option('-k, --kotlin', 'Generate Kotlin models')
-      .option('-j, --java', 'Generate Java models')
-      .option('-r, --react', 'Generate React models')
-      .description('Generate models for a given project.')
-      .action(function(name, options) {
-          generateModels(name, options);
-      });
+program
+    .command('generate-models <name>')
+    .option('-s, --swift', 'Generate Swift models')
+    .option('-k, --kotlin', 'Generate Kotlin models')
+    .option('-j, --java', 'Generate Java models')
+    .option('-r, --react', 'Generate React models')
+    .description('Generate models for a given project.')
+    .action(function(name, options) {
+        generateModels(name, options);
+    });
 
 
 // Failsafe that shows the help dialogue if the command is not recognized (`$ react xyz`)

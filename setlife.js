@@ -256,7 +256,6 @@ program
         }
     });
 
-<<<<<<< HEAD
 program
     .command('create-model <name>')
     .option('-t, --type', 'Create associated Bookshelf-GraphQL Type file in /api/types/')
@@ -272,18 +271,16 @@ program
             addTypeToIndex(name);
         }
     });
-=======
-  program
-      .command('generate-models <name>')
-      .option('-s, --swift', 'Generate Swift models')
-      .option('-k, --kotlin', 'Generate Kotlin models')
-      .option('-j, --java', 'Generate Java models')
-      .option('-r, --react', 'Generate React models')
-      .description('Generate models for a given project.')
-      .action(function(name, options) {
-          generateModels(name, options);
-      });
->>>>>>> 5ea14c983e7b993cdccd8626c1c4f1c7a7a2973f
+program
+    .command('generate-models <name>')
+    .option('-s, --swift', 'Generate Swift models')
+    .option('-k, --kotlin', 'Generate Kotlin models')
+    .option('-j, --java', 'Generate Java models')
+    .option('-r, --react', 'Generate React models')
+    .description('Generate models for a given project.')
+    .action(function(name, options) {
+        generateModels(name, options);
+    });
 
 
 // Failsafe that shows the help dialogue if the command is not recognized (`$ react xyz`)

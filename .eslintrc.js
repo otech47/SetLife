@@ -22,6 +22,7 @@ module.exports = {
         'max-len': 'off',
         'new-cap': 'off',
         'no-bitwise': 'off',
+        'no-cond-assign': 'off',
         'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
         'no-class-assign': 'off',
         'no-else-return': 'off',
@@ -54,6 +55,7 @@ module.exports = {
         'semi': ['error', 'always'],
         'space-before-function-paren': ['off'],
         'spaced-comment': ['off'],
+        'strict': ['off'],
         'vars-on-top': ['off'],
         'wrap-iife': ['off']
     }

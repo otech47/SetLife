@@ -14,6 +14,8 @@ var pluralize = require('pluralize');
 
 var generateComponent = function(name, options) {
     console.log('Creating ' + name + ' component...');
+    console.log(options);
+
 
     var templatePath = path.join(process.cwd(), 'src/templates', 'component.ejs');
     var destinationPath = path.join(process.cwd(), 'src/components', name + '.jsx');
@@ -28,6 +30,69 @@ var generateComponent = function(name, options) {
         fs.writeFile(destinationPath, component);
         console.log('Created component:  ' + name + '...');
     });
+};
+
+var generateModels = function(name, options) {
+    console.log('Generating models for ' + name + ' project...');
+
+    var modelData = [
+      {
+        className: "User",
+        variables: [
+          {
+            name: "email",
+            type: "String"
+          },
+          {
+            name: "id",
+            type: "Int"
+          }
+        ]
+      },
+      {
+        className: "Cat",
+        variables: [
+          {
+            name: "name",
+            type: "String",
+            isArray: false
+          },
+          {
+            name: "id",
+            type: "Int",
+            isArray: false
+          }
+        ]
+      }
+    ];
+
+    modelData.forEach(function(modelJson){
+
+      var className = modelJson.className
+      var variables = modelJson.variables
+
+      var templatePath = path.join(process.cwd(), 'src/templates', 'swiftModel.ejs');
+      var destinationPath = path.join(process.cwd(), 'src/components', className + '.swift');
+
+      fs.readFile(templatePath, 'utf8', function(err, data) {
+          var model = ejs.render(data, {
+              name: className,
+              variables: variables,
+              swift: options.swift || false,
+              java: options.java || false,
+              kotlin: options.java || false,
+              react: options.react || false
+          });
+
+          fs.writeFile(destinationPath, model);
+      });
+
+
+    });
+
+    console.log('Generated models for ' + name + '!');
+
+
 };
 
 var generateStylesheet = function(name) {
@@ -182,7 +247,7 @@ program
     .description('Generate a new React component.')
     .action(function(name, options) {
         generateComponent(name, options);
-        
+
         var style = options.style;
 
         if (style) {
@@ -205,6 +270,17 @@ program
             generateType(name);
             addTypeToIndex(name);
         }
+    });
+
+program
+    .command('generate-models <name>')
+    .option('-s, --swift', 'Generate Swift models')
+    .option('-k, --kotlin', 'Generate Kotlin models')
+    .option('-j, --java', 'Generate Java models')
+    .option('-r, --react', 'Generate React models')
+    .description('Generate models for a given project.')
+    .action(function(name, options) {
+        generateModels(name, options);
     });
 
 

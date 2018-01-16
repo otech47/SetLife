@@ -17,13 +17,6 @@ Libaries used: Express, React, Redux, React Router, Webpack
 Get familiar with the **setlife** folder structure
 
 ```
-|-- /api/                           # Application source code
-    |-- /config/                    # Configuration files (database options, keys, constants, etc) 
-    |-- /handlers/                  # Handle 3rd party APIs here with request.js
-    |-- /models/                    # Database model definitions
-    |-- /modules/                   # Holds files with modular functionality
-    |-- /types/                     # GraphQL type definitions
-    |-- schema.js                   # Root file serving as an index of API endpoints
 |-- /public/                        # Holds all compiled and static files such as fonts and images
 	|-- /fonts/						# Avenir Font included
 	|-- /images/					# Store all photos here
@@ -88,6 +81,10 @@ to terminate the express server run:
 - `setlife create-component <name>` creates a standard component in /src/components
 - Add the option `--redux` or `-r` for Redux-enabled components with `mapStateToProps` and `mapDispatchToProps` functions connected to the component
 - Add the option `--style` or `-s` to generate the corresponding stylesheet and add it to the index
+<<<<<<< HEAD
 ---
 - `setlife create-model <name>` creates a standard model in /api/models
 - Add the option `--type` or `-t` to create the associated Bookshelf-GraphQL Type
+
+=======
+>>>>>>> 5ea14c983e7b993cdccd8626c1c4f1c7a7a2973f

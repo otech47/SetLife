@@ -13,12 +13,6 @@ var port = isProduction ? 80 : 3000;
 app.use(express.static(__dirname + '/public'));
 
 app.get('*', function(req, res, next) {
-
-    // Prevents an HTML response for API calls
-    if (req.path.indexOf('/api/') != -1) {
-        return next();
-    }
-
     fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text) {
         res.send(text);
     });
@@ -41,23 +35,6 @@ var corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// GraphiQL Docs
-var graphqlHTTP = require('express-graphql');
-var apiSchema = require('./api/schema');
-
-app.use('/api/v/:vid/graph', graphqlHTTP(function(req, res) {
-    return {
-        schema: apiSchema,
-        rootValue: {
-            req: req,
-            res: res
-        },
-        pretty: true,
-        graphiql: true
-    };
-}));
-
-
 app.listen(port, function() {
-    console.log('SetLife-ReactWithApi: Server running on port ' + port);
+    console.log('SetLife-ReactAppOnly: Server running on port ' + port);
 });

@@ -13,7 +13,7 @@ export default class LandingPage extends React.Component {
             <div className='LandingPage'>
                 <Flex alignCenter column>
                     <Text>This is the LandingPage component</Text>
-                    <Button>Click here</Button>
+                    <Button marginTop='5rem'>Click here</Button>
                 </Flex>
             </div>
         );

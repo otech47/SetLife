@@ -1,11 +1,7 @@
-import { combineReducers } from 'redux';
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-import { reducer as formReducer } from 'redux-form';
+import { combineReducers } from 'redux'
 
-import environment from './environment';
+import environment from './environment'
 
 export default combineReducers({
-    environment,
-    routing: routerReducer,
-    form: formReducer
-});
+    environment
+})

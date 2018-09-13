@@ -24,6 +24,12 @@ app.get('*', function(req, res, next) {
     });
 });
 
+app.get('*.js', function(req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    next();
+});
+
 var cors = require('cors');
 
 var whitelist = [
@@ -42,20 +48,21 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // GraphiQL Docs
-var graphqlHTTP = require('express-graphql');
-var apiSchema = require('./api/schema');
+// TODO refactor to graphql playground
+// var graphqlHTTP = require('express-graphql');
+// var apiSchema = require('./api/schema');
 
-app.use('/api/v/:vid/graph', graphqlHTTP(function(req, res) {
-    return {
-        schema: apiSchema,
-        rootValue: {
-            req: req,
-            res: res
-        },
-        pretty: true,
-        graphiql: true
-    };
-}));
+// app.use('/api/v/:vid/graph', graphqlHTTP(function(req, res) {
+//     return {
+//         schema: apiSchema,
+//         rootValue: {
+//             req: req,
+//             res: res
+//         },
+//         pretty: true,
+//         graphiql: true
+//     };
+// }));
 
 
 app.listen(port, function() {

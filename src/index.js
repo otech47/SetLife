@@ -1,44 +1,52 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, browserHistory, hashHistory } from 'react-router';
-import { Provider, connect } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { syncHistoryWithStore, routerReducer, routerMiddleware } from 'react-router-redux';
-import createLogger from 'redux-logger';
-import thunk from 'redux-thunk';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-import reducers from './reducers/index';
-import routes from './routes';
+const isProduction = process.env.NODE_ENV === 'production'
 
-// Stylesheets
-import './styles/index.less';
+// global stylesheets
+import 'assets/css/normalize.less'
+import 'assets/css/fonts.less'
 
-// Redux Store setup
-const logger = createLogger({
-    level: 'info',
-    collapsed: true
-});
+// Main App component
+import App from 'components/App'
 
-// Create an enhanced history that syncs navigation events with the store
-const isProduction = process.env.NODE_ENV === 'production';
+// redux setup
+import configureStore from './store'
+const store = configureStore()
 
-const envHistory = isProduction ? browserHistory : hashHistory;
+// Hot reloading setup for development mode only
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Provider store={store}>
+                <Router>
+                    <Route path='/' component={Component} />
+                </Router>
+            </Provider>
+        </AppContainer>,
+        document.getElementById('app-mount-point')
+    )
+}
 
-const middleware = [thunk, routerMiddleware(envHistory)];
+if (isProduction) {
+    ReactDOM.render(
+        <Provider store={store}>
+            <Router>
+                <Route path='/' component={App} />
+            </Router>
+        </Provider>,
+        document.getElementById('app-mount-point')
+    )
+} else {
+    render(App)
+}
 
-const store = compose(
-    applyMiddleware(...middleware)
-)(createStore)(reducers);
-
-const history = syncHistoryWithStore(envHistory, store);
-
-const appMount = document.getElementById('app-mount-point');
-
-render(
-    <Provider store={store}>
-        <Router history={history}>
-            { routes }
-        </Router>
-    </Provider>
-    , appMount
-);
+if (module.hot) {
+    module.hot.accept('components/App', () => {
+        const NextApp = require('components/App').default
+        render(NextApp)
+    })
+}

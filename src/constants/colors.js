@@ -1,9 +1,9 @@
 Reactmodule.exports = {
     fullWhite: '#ffffff',
     white: '#f5f5f5',
-    lightGray: '#e3e3e3',
-    gray: '#9c9c9c',
-    darkGray: '#565a5e',
+    lightGrey: '#e3e3e3',
+    grey: '#9c9c9c',
+    darkGrey: '#565a5e',
     navy: '#253238',
     black: '#1a2429',
     whitePurple: 'f9f2ff;',

@@ -1,15 +1,20 @@
 import React from 'react';
 
 import Button from './Button';
-import ContactForm from './ContactForm';
 import Icon from './Icon';
+import Text from './Text';
+
+import Col from 'styles/Col';
+import Flex from 'styles/Flex';
 
 export default class LandingPage extends React.Component {
     render() {
         return (
             <div className='LandingPage'>
-                <p>This is the LandingPage component</p>
-                <ContactForm/>
+                <Flex alignCenter column>
+                    <Text>This is the LandingPage component</Text>
+                    <Button>Click here</Button>
+                </Flex>
             </div>
         );
     }

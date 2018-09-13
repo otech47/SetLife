@@ -9,7 +9,7 @@ const Button = styled.button`
     font-family: 'Inter UI';
     font-size: 2rem;
     height: 5rem;
-    padding: 0 2rem;
+    padding: ${p => p.padding ? p.padding : '0 2rem'};
     border-radius: ${p => p.theme.borderRadius};
     color: ${p => p.theme.colors[p.color]};
     background-color: ${p => p.theme.colors[p.backgroundColor]};

@@ -5,15 +5,13 @@ const projectDirectory = fs.realpathSync(process.cwd())
 const resolve = relativePath => path.resolve(projectDirectory, relativePath)
 
 module.exports = {
-    appAssets: resolve('assets'),
-    appBuild: resolve('public'),
-    appComponents: resolve('src/components'),
-    appHtml: resolve('src/index.html'),
     appIndex: resolve('src/index.js'),
-    appModules: resolve('node_modules'),
     appRoot: path.resolve(__dirname, '..'),
-    appSrc: resolve('src'),
-    appStyles: resolve('src/styles'),
+    components: resolve('src/components'),
     config: resolve('config'),
+    htmlRoot: resolve('src/index.html'),
     nodeModules: resolve('node_modules'),
+    public: resolve('public'),
+    source: resolve('src'),
+    styles: resolve('src/styles'),
 }

@@ -17,7 +17,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         // where app is built to
-        path: paths.appBuild,
+        path: paths.public,
         // where app is served from
         publicPath: '/',
     },
@@ -26,9 +26,9 @@ module.exports = {
         modules: [paths.nodeModules],
         // commonly imported directories ie. import Row from 'styles'
         alias: {
-            styles: paths.appStyles,
-            components: paths.appComponents,
-            assets: paths.appAssets
+            styles: paths.styles,
+            components: paths.components,
+            public: paths.public
         }
     },
     optimization: {
@@ -45,12 +45,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: paths.appHtml,
+            template: paths.htmlRoot,
             inject: 'body'
         }),
         new CopyWebpackPlugin([
             {
-                from: 'assets',
+                from: 'public',
                 ignore: ['*.less']
             }
         ]),
@@ -59,7 +59,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)?$/,
-                include: paths.appSrc,
+                include: paths.source,
                 loader: 'babel-loader',
                 exclude: /node_modules/
             },

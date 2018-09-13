@@ -1,14 +1,15 @@
 import React, { Component, Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { theme } from 'styles'
-import Input from './Input'
+
+import routes from '../routes';
 
 export default class App extends Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
                 <Fragment>
-                    <Input />
+                    {routes}
                 </Fragment>
             </ThemeProvider>
         )

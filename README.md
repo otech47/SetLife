@@ -10,7 +10,7 @@ Libaries used: Express, React, Redux, React Router, Webpack
 
 2. Move into the directory `cd setlife-react-node-boilerplate`
 
-3. Install dependencies `npm install` 
+3. Install dependencies `yarn install` 
 
 ## Directory Layout
 

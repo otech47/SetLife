@@ -7,8 +7,8 @@ import { Provider } from 'react-redux'
 const isProduction = process.env.NODE_ENV === 'production'
 
 // global stylesheets
-import 'assets/css/normalize.less'
-import 'assets/css/fonts.less'
+import 'public/css/normalize.less'
+import 'public/css/fonts.less'
 
 // Main App component
 import App from 'components/App'

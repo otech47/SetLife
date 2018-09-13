@@ -17,7 +17,7 @@ module.exports = merge(common, {
     // webpack-dev-server config
     devServer: {
         // where to look for static files when building
-        contentBase: paths.appAssets,
+        contentBase: paths.public,
         // bundled files will be available in browser under this path
         publicPath: '/',
         historyApiFallback: true,

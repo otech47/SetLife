@@ -30,63 +30,63 @@ export const link = css`
 `
 
 export const spacing = css`
-    ${is('m')`
-        margin: ${p => p.m};
+    ${is('margin')`
+        margin: ${p => p.margin};
     `}
 
-    ${is('mX')`
-        margin-left: ${p => p.mX};
-        margin-right: ${p => p.mX};
+    ${is('marginHorizontal')`
+        margin-left: ${p => p.marginHorizontal};
+        margin-right: ${p => p.marginHorizontal};
     `}
 
-    ${is('mY')`
-        margin-top: ${p => p.mY};
-        margin-bottom: ${p => p.mY};
+    ${is('marginVertical')`
+        margin-top: ${p => p.marginVertical};
+        margin-bottom: ${p => p.marginVertical};
     `}
 
-    ${is('mT')`
-        margin-top: ${p => p.mT};
+    ${is('marginTop')`
+        margin-top: ${p => p.marginTop};
     `}
 
-    ${is('mB')`
-        margin-bottom: ${p => p.mB};
+    ${is('marginBottom')`
+        margin-bottom: ${p => p.marginBottom};
     `}
 
-    ${is('mL')`
-        margin-left: ${p => p.mL};
+    ${is('marginLeft')`
+        margin-left: ${p => p.marginLeft};
     `}
 
-    ${is('mR')`
-        margin-right: ${p => p.mR};
+    ${is('marginRight')`
+        margin-right: ${p => p.marginRight};
     `}
 
-    ${is('p')`
-        padding: ${p => p.p};
+    ${is('padding')`
+        padding: ${p => p.padding};
     `}
 
-    ${is('pX')`
-        padding-left: ${p => p.pX};
-        padding-right: ${p => p.pX};
+    ${is('paddingHorizontal')`
+        padding-left: ${p => p.paddingHorizontal};
+        padding-right: ${p => p.paddingHorizontal};
     `}
 
-    ${is('pY')`
-        padding-top: ${p => p.pY};
-        padding-bottom: ${p => p.pY};
+    ${is('paddingVertical')`
+        padding-top: ${p => p.paddingVertical};
+        padding-bottom: ${p => p.paddingVertical};
     `}
 
-    ${is('pT')`
-        padding-top: ${p => p.pT};
+    ${is('paddingTop')`
+        padding-top: ${p => p.paddingTop};
     `}
 
-    ${is('pB')`
-        padding-bottom: ${p => p.pB};
+    ${is('paddingBottom')`
+        padding-bottom: ${p => p.paddingBottom};
     `}
 
-    ${is('pL')`
-        padding-left: ${p => p.pL};
+    ${is('paddingLeft')`
+        padding-left: ${p => p.paddingLeft};
     `}
 
-    ${is('pR')`
-        padding-right: ${p => p.pR};
+    ${is('paddingRight')`
+        padding-right: ${p => p.paddingRight};
     `}
 `

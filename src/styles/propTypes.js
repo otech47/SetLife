@@ -11,18 +11,18 @@ export const shadows = {
 }
 
 export const spacing = {
-    m: PropTypes.string,
-    mT: PropTypes.string,
-    mB: PropTypes.string,
-    mL: PropTypes.string,
-    mR: PropTypes.string,
-    mX: PropTypes.string,
-    mY: PropTypes.string,
-    p: PropTypes.string,
-    pT: PropTypes.string,
-    pB: PropTypes.string,
-    pL: PropTypes.string,
-    pR: PropTypes.string,
-    pX: PropTypes.string,
-    pY: PropTypes.string
+    margin: PropTypes.string,
+    marginTop: PropTypes.string,
+    marginBottom: PropTypes.string,
+    marginLeft: PropTypes.string,
+    marginRight: PropTypes.string,
+    marginHorizontal: PropTypes.string,
+    marginVertical: PropTypes.string,
+    padding: PropTypes.string,
+    paddingTop: PropTypes.string,
+    paddingBottom: PropTypes.string,
+    paddingLeft: PropTypes.string,
+    paddingRight: PropTypes.string,
+    paddingHorizontal: PropTypes.string,
+    paddingVertical: PropTypes.string
 }

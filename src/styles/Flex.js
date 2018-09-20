@@ -6,7 +6,6 @@ export default styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-content: stretch;
 
     /* wrap */
     ${is('wrap')`
